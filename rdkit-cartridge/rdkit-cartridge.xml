@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>RDKit-Cartridge-Debian</Name>
+  <Repository>informaticsmatters/rdkit-cartridge-debian</Repository>
+  <Registry>https://hub.docker.com/r/informaticsmatters/</Registry>
+  <Network>bridge</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/InformaticsMatters/rdkit-cartridge-debian</Support>
+  <Project>https://www.rdkit.org/</Project>
+  <Overview>Debian based image containing PostgreSQL with the RDKit cartridge</Overview>
+  <Category>Databases: Tools:</Category>
+  <WebUI></WebUI>
+  <TemplateURL/>
+  <Icon>https://rdkit.org/images/RDKit_logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1684697600</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This container provides a Debian-based PostgreSQL instance with the RDKit cartridge installed. RDKit is a collection of cheminformatics and machine learning tools.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5432</HostPort>
+        <ContainerPort>5432</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/rdkit-cartridge-debian</HostDir>
+      <ContainerDir>/var/lib/postgresql/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>POSTGRES_PASSWORD</Name>
+      <Value>changeme</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_USER</Name>
+      <Value>postgres</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_DB</Name>
+      <Value>rdkit_db</Value>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="PostgreSQL Data" Target="/var/lib/postgresql/data" Default="/mnt/user/appdata/rdkit-cartridge-debian" Mode="rw" Description="Container Path: /var/lib/postgresql/data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/rdkit-cartridge-debian</Config>
+  <Config Name="PostgreSQL Port" Target="5432" Default="5432" Mode="tcp" Description="Container Port: 5432" Type="Port" Display="always" Required="true" Mask="false">5432</Config>
+  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="changeme" Mode="" Description="Set a secure password for the PostgreSQL instance" Type="Variable" Display="always" Required="true" Mask="true">changeme</Config>
+  <Config Name="POSTGRES_USER" Target="POSTGRES_USER" Default="postgres" Mode="" Description="Set the PostgreSQL user" Type="Variable" Display="always" Required="true" Mask="false">postgres</Config>
+  <Config Name="POSTGRES_DB" Target="POSTGRES_DB" Default="rdkit_db" Mode="" Description="Set the name of the default database" Type="Variable" Display="always" Required="true" Mask="false">rdkit_db</Config>
+</Container>
